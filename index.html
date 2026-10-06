@@ -3,64 +3,121 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Orbital Mission Control - Class Progress</title>
+    <title>Orbital Mission Control</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <header>
-      <p>LAB 2 · EVENTS IN MOTION</p>
-      <h1>Orbital Mission Control</h1>
-      <p>Class progress: HTML structure completed.</p>
+    <header class="top-bar">
+      <div>
+        <p class="eyebrow">LAB 2 · EVENTS IN MOTION</p>
+        <h1>Orbital Mission Control</h1>
+      </div>
+      <div id="systemStatus" class="status-pill">SYSTEM READY</div>
     </header>
 
     <main>
-      <section>
-        <h2>Launch Console</h2>
-        <p>Select a destination and prepare the rocket for launch.</p>
+      <section class="mission-layout">
+        <div class="control-panel">
+          <p class="section-label">LAUNCH CONSOLE</p>
+          <h2>Prepare the next mission.</h2>
+          <p class="intro">
+            Select a destination, start the countdown, and guide the flight with your mouse.
+          </p>
 
-        <h3>Destination</h3>
-        <button>Lunar Base</button>
-        <button>Earth Orbit</button>
+          <div class="destination-group">
+            <p class="small-label">DESTINATION</p>
+            <button class="destination selected" data-name="Lunar Base" data-image="images/moon.png">
+              Lunar Base
+            </button>
+            <button class="destination" data-name="Earth Orbit" data-image="images/earth.png">
+              Earth Orbit
+            </button>
+          </div>
 
-        <h3>Mission Data</h3>
-        <p>Mission: Lunar Base</p>
-        <p>Countdown: Standby</p>
-        <p>Window Size: To be added with JavaScript</p>
+          <div class="data-grid">
+            <div class="data-box">
+              <span>MISSION</span>
+              <strong id="missionName">Lunar Base</strong>
+            </div>
+            <div class="data-box">
+              <span>COUNTDOWN</span>
+              <strong id="countdownText">STANDBY</strong>
+            </div>
+            <div class="data-box">
+              <span>WINDOW</span>
+              <strong id="windowSize">-- px</strong>
+            </div>
+          </div>
 
-        <button>Start Launch Sequence</button>
-        <button>Reset Mission</button>
+          <div class="progress-track">
+            <div id="progressBar" class="progress-bar"></div>
+          </div>
+
+          <button id="startButton" class="primary-button">Start Launch Sequence</button>
+          <button id="resetButton" class="secondary-button">Reset Mission</button>
+
+          <p class="keyboard-help">
+            Keyboard: press <strong>D</strong> for display mode or <strong>R</strong> to reset.
+          </p>
+        </div>
+
+        <div id="spaceStage" class="space-stage">
+          <div id="starsBack" class="stars stars-back"></div>
+          <div id="starsFront" class="stars stars-front"></div>
+
+          <img id="destinationImage" class="destination-image" src="images/moon.png" alt="Mission destination" />
+          <img class="earth-base" src="images/earth.png" alt="Earth" />
+          <img id="rocket" class="rocket" src="images/rocket.png" alt="Rocket" />
+
+          <div id="target" class="target">+</div>
+          <div id="largeCountdown" class="large-countdown">READY</div>
+
+          <div class="stage-footer">
+            <span id="flightStatus">FLIGHT STATUS: READY</span>
+            <span id="coordinates">X 000 · Y 000</span>
+          </div>
+        </div>
       </section>
 
-      <section>
-        <h2>Space View</h2>
-        <p>The interactive rocket, planet, stars, and countdown will appear here.</p>
-      </section>
+      <section class="event-section">
+        <div>
+          <p class="section-label">LIVE INPUTS</p>
+          <h2>Events are controlling the interface.</h2>
+        </div>
 
-      <section>
-        <h2>Planned Events</h2>
+        <div class="event-grid">
+          <article id="clickCard" class="event-card">
+            <span>01</span>
+            <h3>Click</h3>
+            <p>Select a destination and begin the mission.</p>
+          </article>
 
-        <article>
-          <h3>Click Event</h3>
-          <p>Choose a destination and start the mission.</p>
-        </article>
+          <article id="mouseCard" class="event-card">
+            <span>02</span>
+            <h3>Mouse</h3>
+            <p>Move inside the space window to guide the target.</p>
+          </article>
 
-        <article>
-          <h3>Mouse Event</h3>
-          <p>Move the flight target inside the space view.</p>
-        </article>
+          <article id="keyboardCard" class="event-card">
+            <span>03</span>
+            <h3>Keyboard</h3>
+            <p>Press D or R to change the interface.</p>
+          </article>
 
-        <article>
-          <h3>Keyboard Event</h3>
-          <p>Use keyboard shortcuts to change or reset the interface.</p>
-        </article>
-
-        <article>
-          <h3>Time Event</h3>
-          <p>Run a timed countdown before launch.</p>
-        </article>
+          <article id="timeCard" class="event-card">
+            <span>04</span>
+            <h3>Time</h3>
+            <p>A timed countdown launches the rocket automatically.</p>
+          </article>
+        </div>
       </section>
     </main>
 
-    <!-- Next step: add style.css, script.js, and image files. -->
+    <footer>
+      <p>Interactive webpage built with HTML, CSS, JavaScript, DOM events, and BOM features.</p>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
